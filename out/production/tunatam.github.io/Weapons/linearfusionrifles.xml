@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<weaponList weaponType="Linear Fusion Rifle">
+	<frame frameType="Precision">
+		<weapon>
+			<name>Reed's Regret</name>
+			<elementType>STASIS</elementType>
+		</weapon>
+		<weapon>
+			<name>Reed's Regret (Adept)</name>
+			<elementType>STASIS</elementType>
+		</weapon>
+		<weapon>
+			<name>Tarantula</name>
+			<elementType>ARC</elementType>
+		</weapon>
+		<weapon>
+			<name>Corsair's Wrath</name>
+			<elementType>SOLAR</elementType>
+		</weapon>
+		<weapon>
+			<name>Cataclysmic</name>
+			<elementType>SOLAR</elementType>
+		</weapon>
+		<weapon>
+			<name>Threaded Needle</name>
+			<elementType>VOID</elementType>
+		</weapon>
+	</frame>
+</weaponList>

@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<weaponList weaponType="Submachine Gun">
+	<frame frameType="Precision">
+		<weapon>
+			<name>Friction Fire</name>
+			<elementType>KINETIC</elementType>
+		</weapon>
+		<weapon>
+			<name>Forensic Nightmare</name>
+			<elementType>STASIS</elementType>
+		</weapon>
+		<weapon>
+			<name>Seventh Seraph VY-7</name>
+			<elementType>ARC</elementType>
+		</weapon>
+		<weapon>
+			<name>Every Waking Moment</name>
+			<elementType>VOID</elementType>
+		</weapon>
+		<weapon>
+			<name>Shayura's Wrath</name>
+			<elementType>VOID</elementType>
+		</weapon>
+		<weapon>
+			<name>Shayura's Wrath (Adept)</name>
+			<elementType>VOID</elementType>
+		</weapon>
+	</frame>
+	<frame frameType="Aggressive">
+		<weapon>
+			<name>Cold Front</name>
+			<elementType>KINETIC</elementType>
+		</weapon>
+		<weapon>
+			<name>Extraordinary Rendition</name>
+			<elementType>KINETIC</elementType>
+		</weapon>
+		<weapon>
+			<name>IKELOS_SMG_v1.0.2</name>
+			<elementType>ARC</elementType>
+		</weapon>
+		<weapon>
+			<name>Borrowed Time</name>
+			<elementType>SOLAR</elementType>
+		</weapon>
+	</frame>
+	<frame frameType="Lightweight">
+		<weapon>
+			<name>Escape Velocity</name>
+			<elementType>KINETIC</elementType>
+		</weapon>
+		<weapon>
+			<name>Multimach CCX</name>
+			<elementType>KINETIC</elementType>
+		</weapon>
+		<weapon>
+			<name>Submission</name>
+			<elementType>KINETIC</elementType>
+		</weapon>
+		<weapon>
+			<name>Stochastic Variable</name>
+			<elementType>ARC</elementType>
+		</weapon>
+		<weapon>
+			<name>MIDA Mini-Tool</name>
+			<elementType>SOLAR</elementType>
+		</weapon>
+		<weapon>
+			<name>Death Adder</name>
+			<elementType>SOLAR</elementType>
+		</weapon>
+		<weapon>
+			<name>Funnelweb</name>
+			<elementType>VOID</elementType>
+		</weapon>
+	</frame>
+</weaponList>

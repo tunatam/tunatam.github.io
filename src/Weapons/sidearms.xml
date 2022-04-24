@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<weaponList weaponType="Sidearm">
+	<frame frameType="Adaptive 3-Burst">
+		<weapon>
+			<name>High Albedo</name>
+			<elementType>KINETIC</elementType>
+		</weapon>
+		<weapon>
+			<name>Peacebond</name>
+			<elementType>STASIS</elementType>
+		</weapon>
+	</frame>
+	<frame frameType="Omolon Adaptive 3-Burst">
+		<weapon>
+			<name>The Last Dance</name>
+			<elementType>ARC</elementType>
+		</weapon>
+		<weapon>
+			<name>The Vision</name>
+			<elementType>ARC</elementType>
+		</weapon>
+	</frame>
+	<frame frameType="Aggressive">
+		<weapon>
+			<name>Empirical Evidence</name>
+			<elementType>KINETIC</elementType>
+		</weapon>
+		<weapon>
+			<name>Brass Attacks</name>
+			<elementType>VOID</elementType>
+		</weapon>
+	</frame>
+	<frame frameType="Precision">
+		<weapon>
+			<name>Enigma's Draw</name>
+			<elementType>KINETIC</elementType>
+		</weapon>
+		<weapon>
+			<name>Lonesome</name>
+			<elementType>KINETIC</elementType>
+		</weapon>
+		<weapon>
+			<name>A Swift Verdict</name>
+			<elementType>VOID</elementType>
+		</weapon>
+	</frame>	
+	<frame frameType="Adaptive Single-Shot">
+		<weapon>
+			<name>The Keening</name>
+			<elementType>ARC</elementType>
+		</weapon>
+		<weapon>
+			<name>Drang</name>
+			<elementType>SOLAR</elementType>
+		</weapon>
+	</frame>
+	
+	<frame frameType="Lightweight">
+		<weapon>
+			<name>Spoiler Alert</name>
+			<elementType>KINETIC</elementType>
+		</weapon>
+		<weapon>
+			<name>Farewell</name>
+			<elementType>KINETIC</elementType>
+		</weapon>
+		<weapon>
+			<name>Redback-5si</name>
+			<elementType>SOLAR</elementType>
+		</weapon>
+		<weapon>
+			<name>Seventh Seraph SI-2</name>
+			<elementType>VOID</elementType>
+		</weapon>
+	</frame>
+	
+	<frame frameType="SUROS Rapid-Fire">
+		<weapon>
+			<name>Punching Out</name>
+			<elementType>SOLAR</elementType>
+		</weapon>
+		<weapon>
+			<name>The Fool's Remedy</name>
+			<elementType>SOLAR</elementType>
+		</weapon>
+	</frame>
+</weaponList>

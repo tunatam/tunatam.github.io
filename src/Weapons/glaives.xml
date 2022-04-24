@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<weaponList weaponType="Glaives">
+	<frame frameType="Adaptive">
+		<weapon>
+			<name>Lubrae's Ruin</name>
+			<elementType>SOLAR</elementType>
+		</weapon>
+		<weapon>
+			<name>The Enigma</name>
+			<elementType>VOID</elementType>
+		</weapon>
+	</frame>
+</weaponList>

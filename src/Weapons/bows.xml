@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<weaponList weaponType="Combat Bow">
+	<frame frameType="Precision">
+		<weapon>
+			<name>Accrued Redemption</name>
+			<elementType>KINETIC</elementType>
+		</weapon>
+		<weapon>
+			<name>Biting Winds</name>
+			<elementType>KINETIC</elementType>
+		</weapon>
+		<weapon>
+			<name>Point of the Stag</name>
+			<elementType>ARC</elementType>
+		</weapon>
+		<weapon>
+			<name>Wolftone Draw</name>
+			<elementType>ARC</elementType>
+		</weapon>
+		<weapon>
+			<name>Biting Winds</name>
+			<elementType>ARC</elementType>
+		</weapon>
+		<weapon>
+			<name>Under Your Skin</name>
+			<elementType>VOID</elementType>
+		</weapon>
+	</frame>
+	<frame frameType="Lightweight">
+		<weapon>
+			<name>Whispering Slab</name>
+			<elementType>KINETIC</elementType>
+		</weapon>
+		<weapon>
+			<name>Fel Taradiddle</name>
+			<elementType>KINETIC</elementType>
+		</weapon>
+		<weapon>
+			<name>Arsenic Bite</name>
+			<elementType>ARC</elementType>
+		</weapon>
+		<weapon>
+			<name>Tyranny of Heaven</name>
+			<elementType>SOLAR</elementType>
+		</weapon>
+		<weapon>
+			<name>Imperial Needle</name>
+			<elementType>VOID</elementType>
+		</weapon>
+	</frame>
+</weaponList>

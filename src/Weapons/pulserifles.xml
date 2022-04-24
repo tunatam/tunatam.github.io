@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<weaponList weaponType="Pulse Rifle">
+	<frame frameType="High-Impact">
+		<weapon>
+			<name>Legal Action II</name>
+			<elementType>KINETIC</elementType>
+		</weapon>
+		<weapon>
+			<name>Cold Denial</name>
+			<elementType>KINETIC</elementType>
+		</weapon>
+		<weapon>
+			<name>The Messenger</name>
+			<elementType>KINETIC</elementType>
+		</weapon>
+		<weapon>
+			<name>The Messenger (Adept)</name>
+			<elementType>KINETIC</elementType>
+		</weapon>
+		<weapon>
+			<name>Stars in Shadow</name>
+			<elementType>SOLAR</elementType>
+		</weapon>
+		<weapon>
+			<name>Premonition</name>
+			<elementType>VOID</elementType>
+		</weapon>
+	</frame>
+	<frame frameType="Aggressive">
+		<weapon>
+			<name>Sacred Provenance</name>
+			<elementType>KINETIC</elementType>
+		</weapon>
+		<weapon>
+			<name>Insidious</name>
+			<elementType>ARC</elementType>
+		</weapon>
+	</frame>
+	<frame frameType="Adaptive">
+		<weapon>
+			<name>Hailing Confusion</name>
+			<elementType>KINETIC</elementType>
+		</weapon>
+		<weapon>
+			<name>Syncopation-53</name>
+			<elementType>STASIS</elementType>
+		</weapon>
+		<weapon>
+			<name>Jian 7 Rifle</name>
+			<elementType>ARC</elementType>
+		</weapon>
+		<weapon>
+			<name>The Third Axiom</name>
+			<elementType>ARC</elementType>
+		</weapon>
+		<weapon>
+			<name>Forge's Pledge</name>
+			<elementType>SOLAR</elementType>
+		</weapon>
+		<weapon>
+			<name>Last Perdition</name>
+			<elementType>VOID</elementType>
+		</weapon>
+	</frame>
+	<frame frameType="Lightweight">
+		<weapon>
+			<name>Chattering Bone</name>
+			<elementType>KINETIC</elementType>
+		</weapon>
+		<weapon>
+			<name>Ogma PR6</name>
+			<elementType>SOLAR</elementType>
+		</weapon>
+	</frame>
+	<frame frameType="Legacy PR-55">
+		<weapon>
+			<name>BXR-55 Battler</name>
+			<elementType>SOLAR</elementType>
+		</weapon>
+	</frame>
+	<frame frameType="Rapid-Fire">
+		<weapon>
+			<name>The Time-Worn Spire</name>
+			<elementType>KINETIC</elementType>
+		</weapon>
+		<weapon>
+			<name>Piece of Mind</name>
+			<elementType>KINETIC</elementType>
+		</weapon>
+		<weapon>
+			<name>Darkest Before</name>
+			<elementType>ARC</elementType>
+		</weapon>
+		<weapon>
+			<name>Jurassic Green</name>
+			<elementType>SOLAR</elementType>
+		</weapon>
+		<weapon>
+			<name>Gridskipper</name>
+			<elementType>VOID</elementType>
+		</weapon>
+	</frame>
+</weaponList>

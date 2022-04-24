@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<weaponList weaponType="Scout Rifle">
+	<frame frameType="High-Impact">
+		<weapon>
+			<name>The Guiding Sight</name>
+			<elementType>KINETIC</elementType>
+		</weapon>
+		<weapon>
+			<name>Transfiguration</name>
+			<elementType>KINETIC</elementType>
+		</weapon>
+		<weapon>
+			<name>Talons of the Eagle</name>
+			<elementType>KINETIC</elementType>
+		</weapon>
+		<weapon>
+			<name>The Scholar</name>
+			<elementType>KINETIC</elementType>
+		</weapon>
+		<weapon>
+			<name>The Scholar (Adept)</name>
+			<elementType>KINETIC</elementType>
+		</weapon>
+		<weapon>
+			<name>Perses-D</name>
+			<elementType>STASIS</elementType>
+		</weapon>
+		<weapon>
+			<name>Pointed Inquiry</name>
+			<elementType>VOID</elementType>
+		</weapon>
+	</frame>
+	<frame frameType="Precision">
+		<weapon>
+			<name>Hung Jury</name>
+			<elementType>KINETIC</elementType>
+		</weapon>
+		<weapon>
+			<name>Hung Jury (Adept)</name>
+			<elementType>KINETIC</elementType>
+		</weapon>
+		<weapon>
+			<name>Vision of Confluence</name>
+			<elementType>SOLAR</elementType>
+		</weapon>
+		<weapon>
+			<name>Vision of Confluence (Timelost)</name>
+			<elementType>SOLAR</elementType>
+		</weapon>
+		<weapon>
+			<name>Royal Chase</name>
+			<elementType>VOID</elementType>
+		</weapon>
+	</frame>
+	<frame frameType="Lightweight">
+		<weapon>
+			<name>Night Watch</name>
+			<elementType>KINETIC</elementType>
+		</weapon>
+		<weapon>
+			<name>Eternal Blazon</name>
+			<elementType>ARC</elementType>
+		</weapon>
+		<weapon>
+			<name>Pleiades Corrector</name>
+			<elementType>SOLAR</elementType>
+		</weapon>
+		<weapon>
+			<name>Vouchsafe</name>
+			<elementType>VOID</elementType>
+		</weapon>
+	</frame>
+	<frame frameType="Rapid-Fire">
+		<weapon>
+			<name>Servant Leader</name>
+			<elementType>KINETIC</elementType>
+		</weapon>
+		<weapon>
+			<name>Contingency Plan</name>
+			<elementType>ARC</elementType>
+		</weapon>
+		<weapon>
+			<name>Trustee</name>
+			<elementType>SOLAR</elementType>
+		</weapon>
+		<weapon>
+			<name>Aisha's Embrace</name>
+			<elementType>VOID</elementType>
+		</weapon>
+		<weapon>
+			<name>Aisha's Embrace (Adept)</name>
+			<elementType>VOID</elementType>
+		</weapon>
+	</frame>
+</weaponList>

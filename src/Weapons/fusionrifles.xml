@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<weaponList weaponType="Trace Rifle">
+	<frame frameType="High-Impact">
+		<weapon>
+			<name>Exile's Curse</name>
+			<elementType>ARC</elementType>
+		</weapon>
+		<weapon>
+			<name>Exile's Curse (Adept)</name>
+			<elementType>ARC</elementType>
+		</weapon>
+		<weapon>
+			<name>Iota Draconis</name>
+			<elementType>SOLAR</elementType>
+		</weapon>
+		<weapon>
+			<name>Glacioclasm</name>
+			<elementType>VOID</elementType>
+		</weapon>
+	</frame>
+	<frame frameType="Aggressive">
+		<weapon>
+			<name>Coriolis Force</name>
+			<elementType>VOID</elementType>
+		</weapon>
+	</frame>
+	<frame frameType="Precision">
+		<weapon>
+			<name>Deliverance</name>
+			<elementType>STASIS</elementType>
+		</weapon>
+		<weapon>
+			<name>Main Ingredient</name>
+			<elementType>ARC</elementType>
+		</weapon>
+		<weapon>
+			<name>Hollow Words</name>
+			<elementType>ARC</elementType>
+		</weapon>
+		<weapon>
+			<name>Plug One.1</name>
+			<elementType>ARC</elementType>
+		</weapon>
+		<weapon>
+			<name>Plug One.1 (Adept)</name>
+			<elementType>ARC</elementType>
+		</weapon>
+		<weapon>
+			<name>Snorri FR5</name>
+			<elementType>VOID</elementType>
+		</weapon>
+	</frame>
+	<frame frameType="Adaptive">
+		<weapon>
+			<name>Techeun Force</name>
+			<elementType>ARC</elementType>
+		</weapon>
+		<weapon>
+			<name>Timelines' Vertex</name>
+			<elementType>SOLAR</elementType>
+		</weapon>
+		<weapon>
+			<name>Dream Breaker</name>
+			<elementType>SOLAR</elementType>
+		</weapon>
+		<weapon>
+			<name>Trinary System</name>
+			<elementType>SOLAR</elementType>
+		</weapon>
+	</frame>
+	<frame frameType="Rapid-Fire">
+		<weapon>
+			<name>Cartesian Coordinate</name>
+			<elementType>SOLAR</elementType>
+		</weapon>
+		<weapon>
+			<name>Zealot's Reward</name>
+			<elementType>VOID</elementType>
+		</weapon>
+		<weapon>
+			<name>Null Composure</name>
+			<elementType>VOID</elementType>
+		</weapon>
+		<weapon>
+			<name>Likely Suspect</name>
+			<elementType>VOID</elementType>
+		</weapon>
+	</frame>
+</weaponList>
