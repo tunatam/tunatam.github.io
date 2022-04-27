@@ -1,7 +1,7 @@
 
 
 function testLoad() {
-    String url = window.location.href;
+    var url = window.location.href;
     var query = url.substring(1);
     var codeStr = query.split("?");
 
