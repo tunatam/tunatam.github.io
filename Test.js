@@ -4,14 +4,9 @@ function testLoad() {
     var url = document.URL;
     var parameters = getJsonFromUrl(url);
 
-    if (parameters.length > 1) {
+    if (parameters["code"] != null) {
         document.getElementById("url").innerHTML = url;
-
-        for (let i = 0; i < parameters.length; i++) {
-            if (parameters[i].localeCompare("code")) {
-                document.getElementById("code").innerHTML = parameters[i];
-            }
-        }
+        document.getElementById("code").innerHTML = parameters["code"];
     }
 }
 
