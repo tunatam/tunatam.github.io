@@ -1,6 +1,11 @@
 
 
-function testButton() {
-    document.getElementById("demo").innerHTML = "Hello World";
-    window.open("https://www.bungie.net/en/OAuth/Authorize?client_id={37970}&response_type=code", "_self");
+function testLoad() {
+    String url = window.location.href;
+    var query = url.substring(1);
+    var codeStr = query.split("?");
+
+    document.getElementById("url").innerHTML = url;
+    document.getElementById("substring").innerHTML = query;
+    document.getElementById("code").innerHTML = codeStr;
 }
