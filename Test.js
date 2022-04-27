@@ -17,9 +17,9 @@ function testLoad() {
 
 function getJsonFromUrl(url) {
     if(!url) url = document.URL;
-    var query = url.substring(1);
+    var query = url.split("?");
     var result = {};
-    query.split("&").forEach(function(part) {
+    query[1].split("&").forEach(function(part) {
         var item = part.split("=");
         result[item[0]] = decodeURIComponent(item[1]);
     });
