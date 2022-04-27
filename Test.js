@@ -13,7 +13,7 @@ function onPageLoad() {
         document.getElementById("url").innerHTML = url;
         document.getElementById("code").innerHTML = code;
 
-        getAccessToken(code);
+        getAccessToken();
     }
 }
 
@@ -28,23 +28,20 @@ function getJsonFromUrl(url) {
     return result;
 }
 
-function getAccessToken(code) {
-    let xhr = new XMLHttpRequest();
-    xhr.open("POST", "https://www.bungie.net/Platform/App/OAuth/Token/ HTTP/1.1");
-    xhr.setRequestHeader("Accept", "application/json");
-    xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+function getAccessToken() {
+    var apiKey = "a744b64a7e864dd591f9770a18b5c00e";
 
-    xhr.onreadystatechange = function () {
-      if (xhr.readyState === 4) {
-        console.log(xhr.status);
-        console.log(xhr.responseText);
-      }};
+    var xhr = new XMLHttpRequest();
+    xhr.open("GET", "https://www.bungie.net/platform/Destiny/Manifest/InventoryItem/1274330687/", true);
+    xhr.setRequestHeader("X-API-Key", apiKey);
 
-    let data = `{
-      "client_id": 37970,
-      "grant_type": "authorization_code",
-      "code": code
-    }`;
+    xhr.onreadystatechange = function(){
+        if(this.readyState === 4 && this.status === 200){
+            var json = JSON.parse(this.responseText);
+            console.log(json.Response.data.inventoryItem.itemName); //Gjallarhorn
+        }
+    }
 
-    xhr.send(data);
+    xhr.send();
 }
+
