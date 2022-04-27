@@ -8,7 +8,7 @@ function testLoad() {
         document.getElementById("url").innerHTML = url;
 
         for (let i = 0; i < parameters.length; i++) {
-            if (parameters[i].localeCompare("code") {
+            if (parameters[i].localeCompare("code")) {
                 document.getElementById("code").innerHTML = parameters[i];
             }
         }
