@@ -7,7 +7,7 @@ function testLoad() {
     if (parameters.length > 1) {
         document.getElementById("url").innerHTML = url;
 
-        for (int i = 0; i < parameters.length; i++) {
+        for (let i = 0; i < parameters.length; i++) {
             if (parameters[i].localeCompare("code") {
                 document.getElementById("code").innerHTML = parameters[i];
             }
