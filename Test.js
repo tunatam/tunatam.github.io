@@ -4,6 +4,8 @@ function onPageLoad() {
     var url = document.URL;
     var baseUrl = "https://tunatam.github.io/";
 
+    testGet();
+
     if (url.length > baseUrl.length) {
         var parameters = getJsonFromUrl(url);
     }
@@ -45,3 +47,13 @@ function getAccessToken() {
     xhr.send();
 }
 
+function testGet() {
+    const Http = new XMLHttpRequest();
+    const url='https://jsonplaceholder.typicode.com/posts';
+    Http.open("GET", url);
+    Http.send();
+
+    Http.onreadystatechange = (e) => {
+        console.log(Http.responseText)
+    }
+}
