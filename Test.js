@@ -26,11 +26,9 @@ function loadFile(filePath) {
 	xmlhttp.open("GET", filePath, false);
 	xmlhttp.send();
 	if (xmlhttp.status==200) {
+	    parseXML(xmlhttp);
 		result = xmlhttp.responseText;
 	}
-
-	parseXML(result);
-
 	return result;
 }
 
