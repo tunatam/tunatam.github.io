@@ -15,6 +15,11 @@ function csvToArray(str, delimiter = ",") {
 	return arr;
 }
 
+function parseXML(xml) {
+	var xmlDoc = xml.responseXML;
+	console.log(xmlDoc);
+}
+
 function loadFile(filePath) {
 	var result = null;
 	var xmlhttp = new XMLHttpRequest();
@@ -23,6 +28,9 @@ function loadFile(filePath) {
 	if (xmlhttp.status==200) {
 		result = xmlhttp.responseText;
 	}
+
+	parseXML(result);
+
 	return result;
 }
 
@@ -33,7 +41,7 @@ function createDatabase() {
 		"scoutrifles.xml", "sidearms.xml", "smgs.xml", "tracerifles.xml"];
 
 	for (var gun of files) {
-		console.log(loadFile(srcPath + gun));
+		loadFile(srcPath + gun);
 	}
 }
 
