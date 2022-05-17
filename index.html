@@ -2,15 +2,28 @@
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
-	<title>Test D2 OAuth</title>
+	<title>DCV Demo V1</title>
 
 	<script type="text/javascript" src="Test.js"></script>
 
 </head>
-	<body onload="onPageLoad()">
+	<body onload="onload()">
 		<h1>Test Destiny 2 API OAuth Request</h1>
 		<a href="https://www.bungie.net/en/OAuth/Authorize?client_id=37970&response_type=code">Authorize App</a>
 		<p id="url"></p>
 		<p id="code"></p>
+
+		<br /><br /><br />
+
+		<form id="myForm">
+			<input type="file" id="csvFile" accept=".csv" />
+			<br />
+			<br />
+			<br />
+			<input type="submit" value="Submit" />
+			<br />
+			<br />
+			<br />
+			<p id="putHere"></p>
+		</form>
 	</body>
-</html>

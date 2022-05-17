@@ -1,59 +1,62 @@
 
+function csvToArray(str, delimiter = ",") {
+	const headers = str.slice(0, str.indexOf("\n")).split(delimiter);
+	const rows = str.slice(str.indexOf("\n") + 1).split("\n");
 
-function onPageLoad() {
-    var url = document.URL;
-    var baseUrl = "https://tunatam.github.io/";
+	const arr = rows.map(function (row) {
+		const values = row.split(delimiter);
+		const el = headers.reduce(function (object, header, index) {
+			object[header] = values[index];
+			return object;
+		}, {});
+		return el;
+	});
 
-    testGet();
-
-    if (url.length > baseUrl.length) {
-        var parameters = getJsonFromUrl(url);
-    }
-
-    if (parameters["code"] != null) {
-        var code = parameters["code"]
-        document.getElementById("url").innerHTML = url;
-        document.getElementById("code").innerHTML = code;
-
-        getAccessToken();
-    }
+	return arr;
 }
 
-function getJsonFromUrl(url) {
-    if(!url) url = document.URL;
-    var query = url.split("?");
-    var result = {};
-    query[1].split("&").forEach(function(part) {
-        var item = part.split("=");
-        result[item[0]] = decodeURIComponent(item[1]);
-    });
-    return result;
+function loadFile(filePath) {
+	var result = null;
+	var xmlhttp = new XMLHttpRequest();
+	xmlhttp.open("GET", filePath, false);
+	xmlhttp.send();
+	if (xmlhttp.status==200) {
+		result = xmlhttp.responseText;
+	}
+	return result;
 }
 
-function getAccessToken() {
-    var apiKey = "a744b64a7e864dd591f9770a18b5c00e";
+function createDatabase() {
+	var srcPath = "/Weapons/";
+	var files = ["autorifles.xml","bows.xml", "fusionrifles.xml", "glaives.xml",
+		"handcannons.xml", "linearfusionrifles.xml", "pulserifles.xml",
+		"scoutrifles.xml", "sidearms.xml", "smgs.xml", "tracerifles.xml"];
 
-    var xhr = new XMLHttpRequest();
-    xhr.open("GET", "https://www.bungie.net/platform/Destiny/Manifest/InventoryItem/1274330687/", true);
-    xhr.setRequestHeader("X-API-Key", apiKey);
-
-    xhr.onreadystatechange = function(){
-        if(this.readyState === 4 && this.status === 200){
-            var json = JSON.parse(this.responseText);
-            console.log(json.Response.data.inventoryItem.itemName); //Gjallarhorn
-        }
-    }
-
-    xhr.send();
+	for (var gun of files) {
+		console.log(loadFile(srcPath + gun));
+	}
 }
 
-function testGet() {
-    const Http = new XMLHttpRequest();
-    const url='https://jsonplaceholder.typicode.com/posts';
-    Http.open("GET", url);
-    Http.send();
+function onload() {
+	const myForm = document.getElementById("myForm");
+	const csvFile = document.getElementById("csvFile");
 
-    Http.onreadystatechange = (e) => {
-        console.log(Http.responseText)
-    }
+	myForm.addEventListener("submit", function (e) {
+		e.preventDefault();
+		const input = csvFile.files[0];
+		const reader = new FileReader();
+
+		reader.onload = function (e) {
+			const text = e.target.result;
+			const data = csvToArray(text);
+			document.getElementById("putHere").innerHTML = data;
+
+			for (var gun in data) {
+				console.log(data[gun]["Name"]);
+			}
+		};
+		reader.readAsText(input);
+	});
+
+	createDatabase();
 }
