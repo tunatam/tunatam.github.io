@@ -27,7 +27,7 @@ function loadFile(filePath) {
 }
 
 function createDatabase() {
-	var srcPath = "/Weapons/";
+	var srcPath = "src/Weapons/";
 	var files = ["autorifles.xml","bows.xml", "fusionrifles.xml", "glaives.xml",
 		"handcannons.xml", "linearfusionrifles.xml", "pulserifles.xml",
 		"scoutrifles.xml", "sidearms.xml", "smgs.xml", "tracerifles.xml"];
