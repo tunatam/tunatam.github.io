@@ -39,6 +39,7 @@ function createDatabase() {
 	    var frames = xml.getElementsByTagName("frame");
 	    var weapon = {weaponType:gun, frameTypes:frames}
 		weaponDatabase[gun] = weapon;
+		console.log(weaponDatabase[gun]);
 	}
 }
 
