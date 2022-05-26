@@ -15,31 +15,30 @@ function csvToArray(str, delimiter = ",") {
 	return arr;
 }
 
-function parseXML(xml) {
-	var xmlDoc = xml.responseXML;
-	console.log(xmlDoc);
-}
-
-function loadFile(filePath) {
+function getFile(filePath) {
 	var result = null;
 	var xmlhttp = new XMLHttpRequest();
 	xmlhttp.open("GET", filePath, false);
 	xmlhttp.send();
 	if (xmlhttp.status==200) {
-	    parseXML(xmlhttp);
-		result = xmlhttp.responseText;
+		result = xmlhttp.responseXML;
 	}
 	return result;
 }
 
 function createDatabase() {
+    var weaponDatabase = {};
 	var srcPath = "src/Weapons/";
-	var files = ["autorifles.xml","bows.xml", "fusionrifles.xml", "glaives.xml",
-		"handcannons.xml", "linearfusionrifles.xml", "pulserifles.xml",
-		"scoutrifles.xml", "sidearms.xml", "smgs.xml", "tracerifles.xml"];
+	var files = ["autorifles","bows", "fusionrifles", "glaives",
+		"handcannons", "linearfusionrifles", "pulserifles",
+		"scoutrifles", "sidearms", "smgs", "tracerifles"];
+	var fileExt = ".xml";
 
 	for (var gun of files) {
-		loadFile(srcPath + gun);
+	    var xml = getFile(srcPath + gun + fileExt);
+	    var frames = xml.getElementsByTagName("frame");
+	    var weapon = {weaponType:gun, frameTypes:frames}
+		weaponCollection[gun] = weapon;
 	}
 }
 
