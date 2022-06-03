@@ -40,9 +40,13 @@ function createDatabase() {
 	    var weapon = {weaponType:gun, frameTypes:frames}
 		weaponDatabase[gun] = weapon;
 
-		for (var test of weaponDatabase[gun].frameTypes) {
-		    console.log(test);
-		    console.log(test.getAttributes());
+		for (var temp of weaponDatabase[gun].frameTypes) {
+		    console.log(temp);
+		    var weapons = temp.getElementsByTagName("weapon");
+
+		    for (var gun of weapons) {
+		        console.log(gun);
+		    }
 		}
 	}
 }
