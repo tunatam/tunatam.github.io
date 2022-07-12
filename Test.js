@@ -1,4 +1,6 @@
 
+const ELEMENT_TYPES = ["KINETIC", "STASIS", "ARC", "SOLAR", "VOID"];
+
 function csvToArray(str, delimiter = ",") {
 	const headers = str.slice(0, str.indexOf("\n")).split(delimiter);
 	const rows = str.slice(str.indexOf("\n") + 1).split("\n");
@@ -26,28 +28,54 @@ function getFile(filePath) {
 	return result;
 }
 
+function getCsvFromServer(filePath) {
+    $.ajax({
+        type: "GET",
+        url: filePath,
+        dataType: "text"
+        success: function(data) {
+            var csv = csvToArray(data);
+
+            for (var gun in csv) {
+                if (csv[gun]["Tier"] !== "Exotic") {
+                    console.log(csv[gun]["Name"]);
+                }
+            }
+        }
+    });
+}
+
 function createDatabase() {
     var weaponDatabase = {};
 	var srcPath = "src/Weapons/";
-	var files = ["autorifles","bows", "fusionrifles", "glaives",
-		"handcannons", "linearfusionrifles", "pulserifles",
-		"scoutrifles", "sidearms", "smgs", "tracerifles"];
-	var fileExt = ".xml";
+	//var files = ["autorifles","bows", "fusionrifles", "glaives",
+	//	"handcannons", "linearfusionrifles", "pulserifles",
+	//	"scoutrifles", "sidearms", "smgs", "tracerifles"];
+	//var fileExt = ".xml";
 
-	for (var gun of files) {
-	    var xml = getFile(srcPath + gun + fileExt);
-	    var frames = xml.getElementsByTagName("frame");
-	    var weapon = {weaponType:gun, frameTypes:frames}
-		weaponDatabase[gun] = weapon;
+    var files = ["autorifles"];
+    var fileExt = ".csv";
 
-		for (var temp of weaponDatabase[gun].frameTypes) {
-		    console.log(temp);
-		    var weapons = temp.getElementsByTagName("weapon");
+	for (var fileName of files) {
+	    var  temp = getCsvFromServer(srcPath + fileName + fileExt);
+	    /*var xml = getFile(srcPath + fileName + fileExt);
+	    var xmlFrameList = xml.getElementsByTagName("frame");
+	    //var weapon = {weaponType:gunList, frameTypes:frames}
+		//weaponDatabase[gunList] = weapon;
 
-		    for (var gun of weapons) {
-		        console.log(gun);
+		for (var xmlFrame of xmlFrameList) {
+		    console.log(xmlFrame);
+		    var frameName = xmlFrameList.getElementsByTagName("frameType");
+		    var xmlWeapons = xmlFrame.getElementsByTagName("weapon");
+		    var frameList = {};
+
+		    for (var xmlGun of xmlWeapons) {
+		        var gunName = xmlGun.getElementsByTagName("name");
+		        var gunElement = xmlGun.getElementsByTagName("elementType");
+		        console.log(gunName + ": " + gunElement);
+		        frameList[gunElement]
 		    }
-		}
+		}*/
 	}
 }
 
@@ -66,7 +94,9 @@ function onload() {
 			document.getElementById("putHere").innerHTML = data;
 
 			for (var gun in data) {
-				console.log(data[gun]["Name"]);
+			    if (data[gun]["Tier"] !== "Exotic") {
+			        console.log(data[gun]["Name"]);
+			    }
 			}
 		};
 		reader.readAsText(input);
