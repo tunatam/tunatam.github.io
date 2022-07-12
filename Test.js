@@ -32,7 +32,7 @@ function getCsvFromServer(filePath) {
     $.ajax({
         type: "GET",
         url: filePath,
-        dataType: "text"
+        dataType: "text",
         success: function(data) {
             var csv = csvToArray(data);
 
