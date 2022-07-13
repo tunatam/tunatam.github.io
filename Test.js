@@ -37,6 +37,7 @@ function getCsvFromServer(filePath) {
         dataType: "text",
         success: function(data) {
             csv = csvToArray(data);
+            return csv;
         }
     });
 
@@ -44,7 +45,7 @@ function getCsvFromServer(filePath) {
 }
 
 function createDatabase() {
-    var weaponDatabase = {};
+    var weaponDatabase = new Map();
 	var srcPath = "src/Weapons/";
 	//var files = ["autorifles","bows", "fusionrifles", "glaives",
 	//	"handcannons", "linearfusionrifles", "pulserifles",
@@ -56,6 +57,7 @@ function createDatabase() {
 
 	for (var fileName of files) {
 	    var temp = getCsvFromServer(srcPath + fileName + fileExt);
+	    weaponDatabase.set(fileName, temp);
 	    /*var xml = getFile(srcPath + fileName + fileExt);
 	    var xmlFrameList = xml.getElementsByTagName("frame");
 	    //var weapon = {weaponType:gunList, frameTypes:frames}
