@@ -36,12 +36,8 @@ function getCsvFromServer(filePath) {
         dataType: "text",
         success: function(data) {
             var csv = csvToArray(data);
-            weaponDatabase.set("temp", csv);
-        },
-        error: (xhr, errmsg, err) => {
-            console.log(xhr.status + ":" + xhr.responseText);
+            document.getElementById('putHere').innerHTML = csv;
         }
-
     });
 }
 
