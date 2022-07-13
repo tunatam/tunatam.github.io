@@ -38,7 +38,11 @@ function getCsvFromServer(filePath) {
         success: function(data) {
             csv = csvToArray(data);
             return csv;
+        },
+        error: (xhr, errmsg, err) => {
+            console.log(xhr.status + ":" + xhr.responseText);
         }
+
     });
 
     return csv;
