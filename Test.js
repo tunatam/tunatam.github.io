@@ -1,5 +1,6 @@
 
 const ELEMENT_TYPES = ["KINETIC", "STASIS", "ARC", "SOLAR", "VOID"];
+var weaponDatabase = new Map();
 
 function csvToArray(str, delimiter = ",") {
 	const headers = str.slice(0, str.indexOf("\n")).split(delimiter);
@@ -29,27 +30,22 @@ function getFile(filePath) {
 }
 
 function getCsvFromServer(filePath) {
-    var csv = null;
-
     $.ajax({
         type: "GET",
         url: filePath,
         dataType: "text",
         success: function(data) {
-            csv = csvToArray(data);
-            return csv;
+            var csv = csvToArray(data);
+            weaponDatabase.set("temp", csv);
         },
         error: (xhr, errmsg, err) => {
             console.log(xhr.status + ":" + xhr.responseText);
         }
 
     });
-
-    return csv;
 }
 
 function createDatabase() {
-    var weaponDatabase = new Map();
 	var srcPath = "src/Weapons/";
 	//var files = ["autorifles","bows", "fusionrifles", "glaives",
 	//	"handcannons", "linearfusionrifles", "pulserifles",
