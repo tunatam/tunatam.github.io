@@ -55,7 +55,7 @@ function createDatabase() {
     var fileExt = ".csv";
 
 	for (var fileName of files) {
-	    var weaponDatabase[fileName] = {getCsvFromServer(srcPath + fileName + fileExt)};
+	    var temp = getCsvFromServer(srcPath + fileName + fileExt);
 	    /*var xml = getFile(srcPath + fileName + fileExt);
 	    var xmlFrameList = xml.getElementsByTagName("frame");
 	    //var weapon = {weaponType:gunList, frameTypes:frames}
