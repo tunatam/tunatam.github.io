@@ -29,20 +29,18 @@ function getFile(filePath) {
 }
 
 function getCsvFromServer(filePath) {
+    var csv = null;
+
     $.ajax({
         type: "GET",
         url: filePath,
         dataType: "text",
         success: function(data) {
-            var csv = csvToArray(data);
-
-            for (var gun in csv) {
-                if (csv[gun]["Tier"] !== "Exotic") {
-                    console.log(csv[gun]["Name"]);
-                }
-            }
+            csv = csvToArray(data);
         }
     });
+
+    return csv;
 }
 
 function createDatabase() {
@@ -57,7 +55,7 @@ function createDatabase() {
     var fileExt = ".csv";
 
 	for (var fileName of files) {
-	    var  temp = getCsvFromServer(srcPath + fileName + fileExt);
+	    var weaponDatabase[fileName] = getCsvFromServer(srcPath + fileName + fileExt);
 	    /*var xml = getFile(srcPath + fileName + fileExt);
 	    var xmlFrameList = xml.getElementsByTagName("frame");
 	    //var weapon = {weaponType:gunList, frameTypes:frames}
