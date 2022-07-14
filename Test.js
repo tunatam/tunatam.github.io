@@ -1,4 +1,8 @@
 
+const PERKS = ["Perks 1", "Perks 2", "Perks 3", "Perks 4", "Perks 5", "Perks 6", "Perks 7",
+               "Perks 8", "Perks 9", "Perks 10", "Perks 11", "Perks 12", "Perks 13", "Perks 14"
+               "Perks 15", "Perks 16"];
+
 function csvToArray(str, delimiter = ",") {
 	const headers = str.slice(0, str.indexOf("\n")).split(delimiter);
 	const rows = str.slice(str.indexOf("\n") + 1).split("\n");
@@ -30,14 +34,22 @@ function setupWebpage(data, userImport) {
     for (var dbGun in data) {
         var foundGuns = userImport.filter(o => o.Name === data[dbGun]["Name"]);
 
+        if (!document.getElementById(foundGuns[0]["Perks 0"])) {
+            document.getElementById('putHere').innerHTML += "<h4>" + foundGuns[0]["Perks 0"] + "</h4>";
+        }
+
         if (foundGuns.length > 0) {
-            var weapHtmlShell = "";
+            var weapHtmlShell = "<p>" + foundGuns[weap]["Name"] + ": You have " + foundGuns.length + ".";
 
             for (var weap in foundGuns) {
-                weapHtmlShell += "<p>" + foundGuns[weap]["Name"] + "</p>";
+                //weapHtmlShell += "<p>" + foundGuns[weap]["Name"];
+                console.log(foundGuns[weap]["Name"]);
+                for (var perkNum in PERKS) {
+                    console.log(foundGuns[weap][perkNum]);
+                }
             }
 
-            document.getElementById('putHere').innerHTML += weapHtmlShell;
+            document.getElementById('putHere').innerHTML += weapHtmlShell + "</p>";
         } else {
             var noUserHit = "<p>" + data[dbGun]["Name"] + ": You have none.</p>";
             document.getElementById('putHere').innerHTML += noUserHit;
