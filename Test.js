@@ -31,10 +31,13 @@ function getFile(filePath) {
 
 function setupWebpage(data, userImport) {
     for (var dbGun in data) {
-        console.log(userImport.find(o => o.Name === data[dbGun]["Name"]));
+        var foundGun = userImport.find(o => o.Name === data[dbGun]["Name"]);
 
-        var weapHtmlShell = "<p>" + dbGun['Type'] + "</p>";
-        document.getElementById('putHere').innerHTML += weapHtmlShell;
+        if (typeof foundGun !== "undefined") {
+            console.log(foundGun["Name"]);
+            var weapHtmlShell = "<p>" + foundGun["Type"] + "</p>";
+            document.getElementById('putHere').innerHTML += weapHtmlShell;
+        }
     }
 }
 
