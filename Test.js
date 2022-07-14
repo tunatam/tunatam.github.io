@@ -62,9 +62,8 @@ function createDatabase(userImport) {
 	//var files = ["autorifles","bows", "fusionrifles", "glaives",
 	//	"handcannons", "linearfusionrifles", "pulserifles",
 	//	"scoutrifles", "sidearms", "smgs", "tracerifles"];
-	//var fileExt = ".xml";
 
-    var files = ["autorifles"];
+    var files = ["autorifles","bows"];
     var fileExt = ".csv";
 
 	for (var fileName of files) {
