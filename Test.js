@@ -28,11 +28,19 @@ function getFile(filePath) {
 
 function setupWebpage(data, userImport) {
     for (var dbGun in data) {
-        var foundGun = userImport.find(o => o.Name === data[dbGun]["Name"]);
+        var foundGuns = userImport.filter(o => o.Name === data[dbGun]["Name"]);
 
-        if (typeof foundGun !== "undefined") {
-            var weapHtmlShell = "<p>" + foundGun["Name"] + "</p>";
+        if (foundGuns.length > 0) {
+            var weapHtmlShell = "";
+
+            for (var weap in foundGuns) {
+                weapHtmlShell += "<p>" + weap["Name"] + "</p>";
+            }
+
             document.getElementById('putHere').innerHTML += weapHtmlShell;
+        } else {
+            var noUserHit = "<p>" + data[dbGun]["Name"] + ": You have none.</p>";
+            document.getElementById('putHere').innerHTML += noUserHit;
         }
     }
 }
@@ -56,7 +64,7 @@ function createDatabase(userImport) {
             dataType: "text",
             success: function(data) {
                 var csv = csvToArray(data);
-                
+
                 var headerShell = "</br><h3 id=" + fileName + ">" + csv[0]["Type"] + "</h3>";
                 document.getElementById('putHere').innerHTML += headerShell;
 
