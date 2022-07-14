@@ -34,9 +34,9 @@ function setupWebpage(data, userImport) {
     for (var dbGun in data) {
         var foundGuns = userImport.filter(o => o.Name === data[dbGun]["Name"]);
 
-        if (!document.getElementById(foundGuns[0]["Perks 0"])) {
-            var tempName = foundGuns[0]["Perks 0"].replace("*","");
-            document.getElementById('putHere').innerHTML += "<h4>" + tempName + "</h4>";
+        if (!document.getElementById(data[dbGun]["Perks 0"])) {
+            var tempName = data[dbGun]["Perks 0"].replace("*","");
+            document.getElementById('putHere').innerHTML += "<h4 id=" + tempName + ">" + tempName + "</h4>";
         }
 
         if (foundGuns.length > 0) {
