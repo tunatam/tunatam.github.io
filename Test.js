@@ -34,7 +34,7 @@ function setupWebpage(data, userImport) {
             var weapHtmlShell = "";
 
             for (var weap in foundGuns) {
-                weapHtmlShell += "<p>" + weap["Name"] + "</p>";
+                weapHtmlShell += "<p>" + foundGuns[weap]["Name"] + "</p>";
             }
 
             document.getElementById('putHere').innerHTML += weapHtmlShell;
