@@ -49,6 +49,8 @@ function createDatabase(userImport) {
     var fileExt = ".csv";
 
 	for (var fileName of files) {
+	    var filePath = srcPath + fileName + fileExt;
+
         $.ajax({
             type: "GET",
             url: filePath,
