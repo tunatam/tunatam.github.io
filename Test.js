@@ -39,7 +39,7 @@ function setupWebpage(data, userImport) {
         }
 
         if (foundGuns.length > 0) {
-            var weapHtmlShell = "<p>" + foundGuns[weap]["Name"] + ": You have " + foundGuns.length + ".";
+            var weapHtmlShell = "<p>" + foundGuns[0]["Name"] + ": You have " + foundGuns.length + ".";
 
             for (var weap in foundGuns) {
                 //weapHtmlShell += "<p>" + foundGuns[weap]["Name"];
