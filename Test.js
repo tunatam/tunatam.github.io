@@ -29,19 +29,16 @@ function getFile(filePath) {
 	return result;
 }
 
-function getCsvFromServer(filePath) {
-    $.ajax({
-        type: "GET",
-        url: filePath,
-        dataType: "text",
-        success: function(data) {
-            var csv = csvToArray(data);
-            document.getElementById('putHere').innerHTML = csv;
-        }
-    });
+function setupWebpage(data, userImport) {
+    for (var dbGun in data) {
+        console.log(userImport.find(o => o.Name === dbGun[gun]["Name"]));
+
+        var weapHtmlShell = "<p>" + dbGun['Type'] + "</p>";
+        document.getElementById('putHere').innerHTML += weapHtmlShell;
+    }
 }
 
-function createDatabase() {
+function createDatabase(userImport) {
 	var srcPath = "src/Weapons/";
 	//var files = ["autorifles","bows", "fusionrifles", "glaives",
 	//	"handcannons", "linearfusionrifles", "pulserifles",
@@ -52,26 +49,15 @@ function createDatabase() {
     var fileExt = ".csv";
 
 	for (var fileName of files) {
-	    var temp = getCsvFromServer(srcPath + fileName + fileExt);
-	    weaponDatabase.set(fileName, temp);
-	    /*var xml = getFile(srcPath + fileName + fileExt);
-	    var xmlFrameList = xml.getElementsByTagName("frame");
-	    //var weapon = {weaponType:gunList, frameTypes:frames}
-		//weaponDatabase[gunList] = weapon;
-
-		for (var xmlFrame of xmlFrameList) {
-		    console.log(xmlFrame);
-		    var frameName = xmlFrameList.getElementsByTagName("frameType");
-		    var xmlWeapons = xmlFrame.getElementsByTagName("weapon");
-		    var frameList = {};
-
-		    for (var xmlGun of xmlWeapons) {
-		        var gunName = xmlGun.getElementsByTagName("name");
-		        var gunElement = xmlGun.getElementsByTagName("elementType");
-		        console.log(gunName + ": " + gunElement);
-		        frameList[gunElement]
-		    }
-		}*/
+        $.ajax({
+            type: "GET",
+            url: filePath,
+            dataType: "text",
+            success: function(data) {
+                var csv = csvToArray(data);
+                setupWebpage(csv, userImport);
+            }
+        });
 	}
 }
 
@@ -86,17 +72,18 @@ function onload() {
 
 		reader.onload = function (e) {
 			const text = e.target.result;
-			const data = csvToArray(text);
-			document.getElementById("putHere").innerHTML = data;
+			const userImport = csvToArray(text);
+			//document.getElementById("putHere").innerHTML = data;
 
-			for (var gun in data) {
-			    if (data[gun]["Tier"] !== "Exotic") {
-			        console.log(data[gun]["Name"]);
+			for (var gun in userImport) {
+			    if (userImport[gun]["Tier"] !== "Exotic") {
+			        console.log(userImport[gun]["Name"]);
 			    }
 			}
+
+			// Build the comparison database
+			createDatabase(userImport);
 		};
 		reader.readAsText(input);
 	});
-
-	createDatabase();
 }
