@@ -50,15 +50,16 @@ function createDatabase(userImport) {
 	for (var fileName of files) {
 	    var filePath = srcPath + fileName + fileExt;
 
-	    var headerShell = "<h3 id=" + fileName + ">" + foundGun["Type"] + "</h3>";
-        document.getElementById('putHere').innerHTML += headerShell;
-
         $.ajax({
             type: "GET",
             url: filePath,
             dataType: "text",
             success: function(data) {
                 var csv = csvToArray(data);
+                
+                var headerShell = "</br><h3 id=" + fileName + ">" + csv[0]["Type"] + "</h3>";
+                document.getElementById('putHere').innerHTML += headerShell;
+
                 setupWebpage(csv, userImport);
             }
         });
