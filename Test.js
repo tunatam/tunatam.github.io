@@ -45,7 +45,7 @@ function setupWebpage(data, userImport) {
             for (var weap in foundGuns) {
                 console.log(foundGuns[weap]["Name"]);
                 for (var perkNum in PERKS) {
-                    console.log(foundGuns[weap][PERKS[perkNum]);
+                    console.log(foundGuns[weap][PERKS[perkNum]]);
                 }
             }
 
