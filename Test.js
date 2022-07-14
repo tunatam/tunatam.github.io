@@ -35,17 +35,17 @@ function setupWebpage(data, userImport) {
         var foundGuns = userImport.filter(o => o.Name === data[dbGun]["Name"]);
 
         if (!document.getElementById(foundGuns[0]["Perks 0"])) {
-            document.getElementById('putHere').innerHTML += "<h4>" + foundGuns[0]["Perks 0"] + "</h4>";
+            var tempName = foundGuns[0]["Perks 0"].replace("*","");
+            document.getElementById('putHere').innerHTML += "<h4>" + tempName + "</h4>";
         }
 
         if (foundGuns.length > 0) {
             var weapHtmlShell = "<p>" + foundGuns[0]["Name"] + ": You have " + foundGuns.length + ".";
 
             for (var weap in foundGuns) {
-                //weapHtmlShell += "<p>" + foundGuns[weap]["Name"];
                 console.log(foundGuns[weap]["Name"]);
                 for (var perkNum in PERKS) {
-                    console.log(foundGuns[weap][perkNum]);
+                    console.log(foundGuns[weap][PERKS[perkNum]);
                 }
             }
 
