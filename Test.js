@@ -1,7 +1,4 @@
 
-const ELEMENT_TYPES = ["KINETIC", "STASIS", "ARC", "SOLAR", "VOID"];
-var weaponDatabase = new Map();
-
 function csvToArray(str, delimiter = ",") {
 	const headers = str.slice(0, str.indexOf("\n")).split(delimiter);
 	const rows = str.slice(str.indexOf("\n") + 1).split("\n");
@@ -34,8 +31,7 @@ function setupWebpage(data, userImport) {
         var foundGun = userImport.find(o => o.Name === data[dbGun]["Name"]);
 
         if (typeof foundGun !== "undefined") {
-            console.log(foundGun["Name"]);
-            var weapHtmlShell = "<p>" + foundGun["Type"] + "</p>";
+            var weapHtmlShell = "<p>" + foundGun["Name"] + "</p>";
             document.getElementById('putHere').innerHTML += weapHtmlShell;
         }
     }
@@ -53,6 +49,9 @@ function createDatabase(userImport) {
 
 	for (var fileName of files) {
 	    var filePath = srcPath + fileName + fileExt;
+
+	    var headerShell = "<h3 id=" + fileName + ">" + foundGun["Type"] + "</h3>";
+        document.getElementById('putHere').innerHTML += headerShell;
 
         $.ajax({
             type: "GET",
@@ -78,13 +77,6 @@ function onload() {
 		reader.onload = function (e) {
 			const text = e.target.result;
 			const userImport = csvToArray(text);
-			//document.getElementById("putHere").innerHTML = data;
-
-			for (var gun in userImport) {
-			    if (userImport[gun]["Tier"] !== "Exotic") {
-			        console.log(userImport[gun]["Name"]);
-			    }
-			}
 
 			// Build the comparison database
 			createDatabase(userImport);
