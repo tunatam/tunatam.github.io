@@ -35,7 +35,7 @@ function setupWebpage(data, userImport) {
         var foundGuns = userImport.filter(o => o.Name === data[dbGun]["Name"]);
 
         var tempName = data[dbGun]["Perks 0"].replace("*","");
-        var tempId = tempName + data[dbGun]["Category"].replace(" ","");
+        var tempId = tempName + data[dbGun]["Type"].replace(" ","");
         if (!document.getElementById(tempId)) {
 
             document.getElementById('putHere').innerHTML += "<h4 id=" + tempId + ">" + tempName + "</h4>";
