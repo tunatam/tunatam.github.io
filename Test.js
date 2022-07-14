@@ -1,6 +1,6 @@
 
 const PERKS = ["Perks 1", "Perks 2", "Perks 3", "Perks 4", "Perks 5", "Perks 6", "Perks 7",
-               "Perks 8", "Perks 9", "Perks 10", "Perks 11", "Perks 12", "Perks 13", "Perks 14"
+               "Perks 8", "Perks 9", "Perks 10", "Perks 11", "Perks 12", "Perks 13", "Perks 14",
                "Perks 15", "Perks 16"];
 
 function csvToArray(str, delimiter = ",") {
