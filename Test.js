@@ -36,10 +36,23 @@ function getFile(filePath) {
 	return result;
 }
 
-
-
-
 function setupWebpage(database, userImport, weaponTypeName) {
+    // Make master div element
+    var masterDiv = document.createElement("div");
+    masterDiv.setAttribute("id", weaponTypeName + "_MASTER_DIV");
+    document.getElementById("putHere").appendChild(masterDiv);
+
+    // Make Gun header container
+    var newGunTypeHeader = document.createElement("gunTypeHeader");
+    newGunTypeHeader.setAttribute("id", weaponTypeName + "_header");
+    masterDiv.appendChild(newGunTypeHeader);
+
+    // Make the Gun Header Label
+    var newGunTypeDiv = document.createElement("gunTypeDiv");
+    newGunTypeDiv.setAttribute("id", weaponTypeName + "_gunTypeDiv");
+    newGunTypeDiv.textContent = database[0]["Type"];
+    newGunTypeHeader.appendChild(newGunTypeDiv);
+
     // New doc elements for new guns
     var newFrameTypeContainer = undefined;
     var newFrameTypeDiv = undefined;
@@ -58,7 +71,7 @@ function setupWebpage(database, userImport, weaponTypeName) {
             // Make the frameTypeContainer
             newFrameTypeContainer = document.createElement("frameTypeContainer");
             newFrameTypeContainer.setAttribute("id", frameId + "_frameTypeContainer");
-            document.getElementById(weaponTypeName).appendChild(newFrameTypeContainer);
+            masterDiv.appendChild(newFrameTypeContainer);
 
             // Make the frameTypeDiv
             newFrameTypeDiv = document.createElement("frameTypeDiv");
@@ -170,10 +183,6 @@ function createDatabase(userImport) {
             dataType: "text",
             success: function(data) {
                 var csv = csvToArray(data);
-
-                var headerShell = "</br><h3 id=" + fileName + ">" + csv[0]["Type"] + "</h3>";
-                document.getElementById("putHere").innerHTML += headerShell;
-
                 setupWebpage(csv, userImport, fileName);
             }
         });
