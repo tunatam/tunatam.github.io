@@ -1,7 +1,13 @@
 
+const ELEMENT_TYPES = ["Kinetic", "Stasis", "Arc", "Solar", "Void"];
+
 const PERKS = ["Perks 1", "Perks 2", "Perks 3", "Perks 4", "Perks 5", "Perks 6", "Perks 7",
                "Perks 8", "Perks 9", "Perks 10", "Perks 11", "Perks 12", "Perks 13", "Perks 14",
                "Perks 15", "Perks 16"];
+
+const BARRELS = ["Arrowhead Break", "Barrel Shroud", "Chambered Compensator", "Corkscrew Rifling", "Extended Barrel",
+                 "Fluted Barrel", "Full Bore", "Full Choke", "Hammer-Forged Rifling", "Polygonal Rifling",
+                 "Rifled Barrel", "Smallbore", "Smoothbore"];
 
 function csvToArray(str, delimiter = ",") {
 	const headers = str.slice(0, str.indexOf("\n")).split(delimiter);
@@ -30,31 +36,118 @@ function getFile(filePath) {
 	return result;
 }
 
-function setupWebpage(data, userImport) {
-    for (var dbGun in data) {
-        var foundGuns = userImport.filter(o => o.Name === data[dbGun]["Name"]);
 
-        var tempName = data[dbGun]["Perks 0"].replace("*","");
-        var tempId = tempName + data[dbGun]["Type"].replace(" ","");
-        if (!document.getElementById(tempId)) {
 
-            document.getElementById('putHere').innerHTML += "<h4 id=" + tempId + ">" + tempName + "</h4>";
+
+function setupWebpage(database, userImport, weaponTypeName) {
+    // New doc elements for new guns
+    var newFrameTypeContainer = undefined;
+    var newFrameTypeDiv = undefined;
+    var newElementDiv = undefined;
+    var newWeapListDiv = undefined;
+    var newGunList = undefined;
+    var newGunItem = undefined;
+
+    for (var dbGun in database) {
+        // Check the page for this gun's frameType
+        var frameType = database[dbGun]["Perks 0"].replace("*","");
+        var frameId = frameType + database[dbGun]["Type"].replace(" ","");
+        var frameTypeContainer = document.getElementById(frameId + "_frameTypeContainer");
+
+        if (!frameTypeContainer) {
+            // Make the frameTypeContainer
+            newFrameTypeContainer = document.createElement("frameTypeContainer");
+            newFrameTypeContainer.setAttribute("id", frameId + "_frameTypeContainer");
+            document.getElementById(weaponTypeName).appendChild(newFrameTypeContainer);
+
+            // Make the frameTypeDiv
+            newFrameTypeDiv = document.createElement("frameTypeDiv");
+            newFrameTypeDiv.setAttribute("id", frameId + "_frameTypeDiv");
+            newFrameTypeDiv.textContent = frameType;
+            newFrameTypeContainer.appendChild(newFrameTypeDiv);
+
+            for (var ele in ELEMENT_TYPES) {
+                var elementType = ELEMENT_TYPES[ele];
+                var elementTypeId = frameId + elementType;
+                var createElementType = "";
+
+                switch(elementType) {
+                    case "Kinetic":
+                        createElementType = "kinWeapDiv";
+                        break;
+                    case "Stasis":
+                        createElementType = "staWeapDiv";
+                        break;
+                    case "Arc":
+                        createElementType = "arcWeapDiv";
+                        break;
+                    case "Solar":
+                        createElementType = "solWeapDiv";
+                        break;
+                    case "Void":
+                        createElementType = "voidWeapDiv";
+                        break;
+                }
+
+                // Make the elementDiv
+                newElementDiv = document.createElement(createElementType);
+                newElementDiv.setAttribute("id", elementTypeId);
+                newElementDiv.textContent = elementType;
+                newFrameTypeContainer.appendChild(newElementDiv);
+            }
         }
 
-        if (foundGuns.length > 0) {
-            var weapHtmlShell = "<p>" + foundGuns[0]["Name"] + ": You have " + foundGuns.length + ".";
+        // Check the page for this gun's element list
+        var elementType = database[dbGun]["Element"];
+        var elementListId = frameId + elementType + "_listDiv";
+        var elementListDiv = document.getElementById(elementListId);
 
-            for (var weap in foundGuns) {
-                console.log(foundGuns[weap]["Name"]);
-                for (var perkNum in PERKS) {
-                    console.log(foundGuns[weap][PERKS[perkNum]]);
-                }
+        if (!elementListDiv) {
+            // Make the elementListDiv
+            var createElementType = "";
+
+            switch(elementType) {
+                case "Kinetic":
+                    createElementType = "kinWeapListDiv";
+                    break;
+                case "Stasis":
+                    createElementType = "staWeapListDiv";
+                    break;
+                case "Arc":
+                    createElementType = "arcWeapListDiv";
+                    break;
+                case "Solar":
+                    createElementType = "solWeapListDiv";
+                    break;
+                case "Void":
+                    createElementType = "voidWeapListDiv";
+                    break;
             }
 
-            document.getElementById('putHere').innerHTML += weapHtmlShell + "</p>";
+            // Make the elementDiv
+            newWeapListDiv = document.createElement(createElementType);
+            newWeapListDiv.setAttribute("id", elementTypeId);
+            newFrameTypeContainer.appendChild(newElementDiv);
+        }
+
+        // Check the page to see if the gun's name is already there
+        var gunName = database[dbGun]["Name"];
+        var gunListId = gunName.replace(" ", "") + "_list";
+        var gunInPage = document.getElementById(gunListId);
+
+        if (!gunInPage) {
+            // Add the gun to the specific elementList in the specific frameTypeContainer
+            newGunList = document.createElement("ul");
+            newGunList.setAttribute("id", gunListId);
+
+            var newGunListLabel = document.createElement("ll");
+            newGunListLabel.setAttribute("id", gunListId + "Label");
+            newGunListLabel.textContent = gunName;
+
+            newGunList.appendChild(newGunListLabel);
+
         } else {
-            var noUserHit = "<p>" + data[dbGun]["Name"] + ": You have none.</p>";
-            document.getElementById('putHere').innerHTML += noUserHit;
+            // Add the roll to the specific gun in the specific elementList in the specific frameTypeContainer
         }
     }
 }
@@ -65,7 +158,7 @@ function createDatabase(userImport) {
 	//	"handcannons", "linearfusionrifles", "pulserifles",
 	//	"scoutrifles", "sidearms", "smgs", "tracerifles"];
 
-    var files = ["autorifles","bows"];
+    var files = ["autorifles","bows","fusionrifles"];
     var fileExt = ".csv";
 
 	for (var fileName of files) {
@@ -79,9 +172,9 @@ function createDatabase(userImport) {
                 var csv = csvToArray(data);
 
                 var headerShell = "</br><h3 id=" + fileName + ">" + csv[0]["Type"] + "</h3>";
-                document.getElementById('putHere').innerHTML += headerShell;
+                document.getElementById("putHere").innerHTML += headerShell;
 
-                setupWebpage(csv, userImport);
+                setupWebpage(csv, userImport, fileName);
             }
         });
 	}

@@ -1,0 +1,82 @@
+.gunTypeHeader {
+	display: grid;
+	grid-template-columns: repeat(7, 1fr);
+	grid-template-rows: repeat(1, 1fr);
+	grid-column-gap: 0px;
+	grid-row-gap: 10px;
+}
+
+.gunTypeDiv {
+	grid-area: 1 / 1 / 2 / 8;
+	text-align: center;
+	font-size: 200%;
+	font-weight: bold;
+}
+
+
+.frameTypeContainer {
+	display: grid;
+	grid-template-columns: repeat(7, 1fr);
+	grid-template-rows: grid-template-rows: repeat(1, auto) repeat(3, 1fr);
+	grid-column-gap: 0px;
+	grid-row-gap: 0px;
+}
+	
+.frameTypeDiv {
+	grid-area: 1 / 2 / 2 / 7;
+	text-align: center;
+	font-size: 150%;
+	font-weight: bold;
+}
+
+.kinWeapDiv {
+	grid-area: 2 / 2 / 3 / 3;
+	text-align: center;
+	font-weight: bold;
+	border: 1px solid #010101;
+}
+.staWeapDiv {
+	grid-area: 2 / 3 / 3 / 4;
+	text-align: center;
+	font-weight: bold;
+	border: 1px solid #010101;
+}
+.arcWeapDiv {
+	grid-area: 2 / 4 / 3 / 5;
+	text-align: center;
+	font-weight: bold;
+	border: 1px solid #010101;
+}
+.solWeapDiv {
+	grid-area: 2 / 5 / 3 / 6;
+	text-align: center;
+	font-weight: bold;
+	border: 1px solid #010101;
+}
+.voidWeapDiv {
+	grid-area: 2 / 6 / 3 / 7;
+	text-align: center;
+	font-weight: bold;
+	border: 1px solid #010101;
+}
+
+.kinWeapListDiv {
+	grid-area: 3 / 2 / 4 / 3;
+	border: 1px solid #010101;
+}
+.staWeapListDiv {
+	grid-area: 3 / 3 / 4 / 4;
+	border: 1px solid #010101;
+}
+.arcWeapListDiv {
+	grid-area: 3 / 4 / 4 / 5;
+	border: 1px solid #010101;
+}
+.solWeapListDiv {
+	grid-area: 3 / 5 / 4 / 6;
+	border: 1px solid #010101;
+}
+.voidWeapListDiv {
+	grid-area: 3 / 6 / 4 / 7;
+	border: 1px solid #010101;
+}
