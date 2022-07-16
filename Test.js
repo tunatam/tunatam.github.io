@@ -120,7 +120,7 @@ function setupWebpage(database, userImport, weaponTypeName) {
 
         // Check the page for this gun's element list
         var elementType = database[dbGun]["Element"];
-        var elementListId = frameId + elementType + "_listDiv";
+        var elementListId = frameId + "_" + elementType + "_listDiv";
         var elementListDiv = document.getElementById(elementListId);
 
         if (!elementListDiv) {
@@ -147,7 +147,7 @@ function setupWebpage(database, userImport, weaponTypeName) {
 
             // Make the elementDiv
             newWeapListDiv = document.createElement("div");
-            newWeapListDiv.setAttribute("id", elementTypeId);
+            newWeapListDiv.setAttribute("id", elementListId);
             newWeapListDiv.setAttribute("class", createElementType);
             newFrameTypeContainer.appendChild(newWeapListDiv);
         }
