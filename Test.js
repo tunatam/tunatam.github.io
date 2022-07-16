@@ -40,6 +40,9 @@ function setupWebpage(database, userImport, weaponTypeName) {
     // Make master div element
     var masterDiv = document.createElement("div");
     masterDiv.setAttribute("id", weaponTypeName + "_MASTER_DIV");
+
+    var spacer = document.createElement("br");
+    document.getElementById("putHere").appendChild(spacer);
     document.getElementById("putHere").appendChild(masterDiv);
 
     // Make Gun header container
@@ -146,7 +149,7 @@ function setupWebpage(database, userImport, weaponTypeName) {
             newWeapListDiv = document.createElement("div");
             newWeapListDiv.setAttribute("id", elementTypeId);
             newWeapListDiv.setAttribute("class", createElementType);
-            newFrameTypeContainer.appendChild(newElementDiv);
+            newFrameTypeContainer.appendChild(newWeapListDiv);
         }
 
         // Check the page to see if the gun's name is already there
@@ -163,6 +166,7 @@ function setupWebpage(database, userImport, weaponTypeName) {
             newGunListLabel.setAttribute("id", gunListId + "Label");
             newGunListLabel.textContent = gunName;
 
+            newWeapListDiv.appendChild(newGunList);
             newGunList.appendChild(newGunListLabel);
 
         } else {
