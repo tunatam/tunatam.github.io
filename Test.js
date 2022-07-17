@@ -176,10 +176,16 @@ function setupWebpage(database, userImport, weaponTypeName) {
 
         // Check the user input for dbGun
         var foundGuns = userImport.filter(o => o.Name === database[dbGun]["Name"]);
+        gunListId = gunName.replace(" ", "") + "_list";
+        gunInPage = document.getElementById(gunListId);
 
-        foundGuns.forEach(userGun => {
-            console.log(userGun["Name"]);
-        });
+        for (var userGunNum in foundGuns) {
+            var gunName = foundGuns[userGunNum]["Name"];
+            var userGunListItem = document.createElement("li");
+            userGunListItem.setAttribute("id", gunName + "_" + userGunNum);
+            userGunListItem.textContent(userGunNum + " " + userGunNum);
+            gunInPage.appendChild(userGunListItem);
+        }
     }
 }
 
