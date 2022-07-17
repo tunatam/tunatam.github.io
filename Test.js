@@ -43,10 +43,10 @@ function setupWebpage(database, userImport, weaponTypeName) {
 
     // Add some spacers
     var spacer1 = document.createElement("br");
-    document.getElementById("putHere").appendChild(spacer1);
+    masterDiv.appendChild(spacer1);
 
     var spacer2 = document.createElement("br");
-    document.getElementById("putHere").appendChild(spacer2);
+    masterDiv.appendChild(spacer2);
 
     // Make Gun header container
     var newGunTypeHeader = document.createElement("div");
