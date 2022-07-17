@@ -40,6 +40,7 @@ function setupWebpage(database, userImport, weaponTypeName) {
     // Make master div element
     var masterDiv = document.createElement("div");
     masterDiv.setAttribute("id", weaponTypeName + "_MASTER_DIV");
+    document.getElementById("putHere").appendChild(masterDiv);
 
     // Add some spacers
     var spacer1 = document.createElement("br");
