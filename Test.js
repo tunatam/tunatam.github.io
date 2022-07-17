@@ -183,7 +183,7 @@ function setupWebpage(database, userImport, weaponTypeName) {
             var gunName = foundGuns[userGunNum]["Name"];
             var userGunListItem = document.createElement("li");
             userGunListItem.setAttribute("id", gunName + "_" + userGunNum);
-            userGunListItem.textContent(userGunNum + " " + userGunNum);
+            userGunListItem.innerHTML = userGunNum + " " + userGunNum;
             gunInPage.appendChild(userGunListItem);
         }
     }
