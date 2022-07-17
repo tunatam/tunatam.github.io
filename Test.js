@@ -41,9 +41,12 @@ function setupWebpage(database, userImport, weaponTypeName) {
     var masterDiv = document.createElement("div");
     masterDiv.setAttribute("id", weaponTypeName + "_MASTER_DIV");
 
-    var spacer = document.createElement("br");
-    document.getElementById("putHere").appendChild(spacer);
-    document.getElementById("putHere").appendChild(masterDiv);
+    // Add some spacers
+    var spacer1 = document.createElement("br");
+    document.getElementById("putHere").appendChild(spacer1);
+
+    var spacer2 = document.createElement("br");
+    document.getElementById("putHere").appendChild(spacer2);
 
     // Make Gun header container
     var newGunTypeHeader = document.createElement("div");
@@ -168,10 +171,14 @@ function setupWebpage(database, userImport, weaponTypeName) {
 
             newWeapListDiv.appendChild(newGunList);
             newGunList.appendChild(newGunListLabel);
-
-        } else {
-            // Add the roll to the specific gun in the specific elementList in the specific frameTypeContainer
         }
+
+        // Check the user input for dbGun
+        var foundGuns = userImport.filter(o => o.Name === database[dbGun]["Name"]);
+
+        foundGuns.forEach(userGun => {
+            console.log(userGun["Name"]);
+        });
     }
 }
 
