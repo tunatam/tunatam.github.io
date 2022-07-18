@@ -56,7 +56,7 @@ function setupWebpage(database, userImport, weaponTypeName) {
     masterDiv.appendChild(newGunTypeHeader);
 
     // Make the Gun Header Label
-    var newGunTypeDiv = document.createElement("gunTypeDiv");
+    var newGunTypeDiv = document.createElement("div");
     newGunTypeDiv.setAttribute("id", weaponTypeName + "_gunTypeDiv");
     newGunTypeDiv.setAttribute("class", "gunTypeDiv");
     newGunTypeDiv.textContent = database[0]["Type"];
@@ -78,13 +78,13 @@ function setupWebpage(database, userImport, weaponTypeName) {
 
         if (!frameTypeContainer) {
             // Make the frameTypeContainer
-            newFrameTypeContainer = document.createElement("frameTypeContainer");
+            newFrameTypeContainer = document.createElement("div");
             newFrameTypeContainer.setAttribute("id", frameId + "_frameTypeContainer");
             newFrameTypeContainer.setAttribute("class", "frameTypeContainer");
             masterDiv.appendChild(newFrameTypeContainer);
 
             // Make the frameTypeDiv
-            newFrameTypeDiv = document.createElement("frameTypeDiv");
+            newFrameTypeDiv = document.createElement("div");
             newFrameTypeDiv.setAttribute("id", frameId + "_frameTypeDiv");
             newFrameTypeDiv.setAttribute("class", "frameTypeDiv");
             newFrameTypeDiv.textContent = frameType;
@@ -116,7 +116,7 @@ function setupWebpage(database, userImport, weaponTypeName) {
                 // Make the elementDiv
                 newElementDiv = document.createElement("div");
                 newElementDiv.setAttribute("id", elementTypeId);
-                newElementDiv.setAttribute("class", createElementType);
+                newElementDiv.setAttribute("class", "weapCell " + createElementType);
                 newElementDiv.textContent = elementType;
                 newFrameTypeContainer.appendChild(newElementDiv);
             }
@@ -152,7 +152,7 @@ function setupWebpage(database, userImport, weaponTypeName) {
             // Make the elementDiv
             newWeapListDiv = document.createElement("div");
             newWeapListDiv.setAttribute("id", elementListId);
-            newWeapListDiv.setAttribute("class", createElementType);
+            newWeapListDiv.setAttribute("class", "listCell " + createElementType);
             newFrameTypeContainer.appendChild(newWeapListDiv);
         }
 
@@ -181,10 +181,32 @@ function setupWebpage(database, userImport, weaponTypeName) {
 
         for (var userGunNum in foundGuns) {
             var gunName = foundGuns[userGunNum]["Name"];
+            var userGunId = gunName + "_" + userGunNum;
             var userGunListItem = document.createElement("li");
-            userGunListItem.setAttribute("id", gunName + "_" + userGunNum);
-            userGunListItem.innerHTML = userGunNum + " " + userGunNum;
+            userGunListItem.setAttribute("id", userGunId + "_listItem");
+
+            var userGunButton = document.createElement("button");
+            userGunButton.setAttribute("id", userGunId);
+            userGunButton.setAttribute("class", "collapsible");
+            userGunButton.innerHTML = "Roll " + userGunNum;
+
+            var userGunContent = document.createElement("div");
+            userGunContent.setAttribute("id", userGunId + "_content");
+            userGunContent.setAttribute("class", "content");
+            userGunContent.innerHTML = "TEMP TEXT";
+
+            userGunButton.addEventListener("click", function() {
+                this.classList.toggle("active");
+                if (userGunContent.style.display === "block") {
+                    userGunContent.style.display = "none";
+                } else {
+                    userGunContent.style.display = "block";
+                }
+            });
+
             gunInPage.appendChild(userGunListItem);
+            userGunListItem.appendChild(userGunButton);
+            userGunListItem.appendChild(userGunContent);
         }
     }
 }

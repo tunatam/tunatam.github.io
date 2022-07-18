@@ -1,3 +1,18 @@
+:root {
+	--spaceCadet: #2D3142;
+	--lightGray: #D8D5DB;
+	--lavenderWeb: #EAE8FF;
+	--silverMetallic: #ADACB5;
+	--babyBlueEyes: #B0D7FF;
+}
+
+.body-style {
+	background-color: var(--spaceCadet);
+	color: var(--lightGray);
+}
+
+
+
 .gunTypeHeader {
 	display: grid;
 	grid-template-columns: repeat(7, 1fr);
@@ -27,56 +42,80 @@
 	text-align: center;
 	font-size: 150%;
 	font-weight: bold;
+	padding: 1%;
 }
 
-.kinWeapDiv {
-	grid-area: 2 / 2 / 3 / 3;
+.weapCell {
 	text-align: center;
 	font-weight: bold;
-	border: 1px solid #010101;
+	border: 1px solid var(--silverMetallic);
+}
+.kinWeapDiv {
+	grid-area: 2 / 2 / 3 / 3;
 }
 .staWeapDiv {
 	grid-area: 2 / 3 / 3 / 4;
-	text-align: center;
-	font-weight: bold;
-	border: 1px solid #010101;
 }
 .arcWeapDiv {
 	grid-area: 2 / 4 / 3 / 5;
-	text-align: center;
-	font-weight: bold;
-	border: 1px solid #010101;
 }
 .solWeapDiv {
 	grid-area: 2 / 5 / 3 / 6;
-	text-align: center;
-	font-weight: bold;
-	border: 1px solid #010101;
 }
 .voidWeapDiv {
 	grid-area: 2 / 6 / 3 / 7;
-	text-align: center;
-	font-weight: bold;
-	border: 1px solid #010101;
 }
 
+.listCell {
+	border: 1px solid var(--silverMetallic);
+	padding: 5%;
+}
 .kinWeapListDiv {
 	grid-area: 3 / 2 / 4 / 3;
-	border: 1px solid #010101;
 }
 .staWeapListDiv {
 	grid-area: 3 / 3 / 4 / 4;
-	border: 1px solid #010101;
 }
 .arcWeapListDiv {
 	grid-area: 3 / 4 / 4 / 5;
-	border: 1px solid #010101;
 }
 .solWeapListDiv {
 	grid-area: 3 / 5 / 4 / 6;
-	border: 1px solid #010101;
 }
 .voidWeapListDiv {
 	grid-area: 3 / 6 / 4 / 7;
-	border: 1px solid #010101;
 }
+
+
+ul.bulletPoint {
+	list-style-position: outside;
+	list-style: none;
+	padding-left: 0;
+}
+
+
+.collapsible {
+	background-color: var(--babyBlueEyes);
+	cursor: pointer;
+	padding: 5px;
+	width: 100%;
+	border: none;
+	text-align: left;
+	outline: none;
+	font-size: 15px;
+}
+
+
+.active, .collapsible:hover {
+	font-style: italic;
+	font-weight: bold;
+}
+
+.content {
+	padding: 0 18px;
+	display: none;
+	overflow: hidden;
+	background-color: var(--lavenderWeb);
+	color: black;
+}
+
