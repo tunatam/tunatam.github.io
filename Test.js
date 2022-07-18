@@ -197,10 +197,11 @@ function setupWebpage(database, userImport, weaponTypeName) {
 
             userGunButton.addEventListener("click", function() {
                 this.classList.toggle("active");
-                if (userGunContent.style.display === "block") {
-                    userGunContent.style.display = "none";
+                var content = document.getElementById(this.getAttribute("id") + "_content");
+                if (content.style.display === "block") {
+                    content.style.display = "none";
                 } else {
-                    userGunContent.style.display = "block";
+                    content.style.display = "block";
                 }
             });
 
