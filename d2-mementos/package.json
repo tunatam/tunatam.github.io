@@ -1,7 +1,7 @@
 {
   "name": "d2-mementos",
   "version": "0.1.0",
-  "homepage": "https://tunatam.github.io/d2-mementos",
+  "homepage": "https://tunatam.github.io/d2-mementos/",
   "private": true,
   "dependencies": {
     "@testing-library/jest-dom": "^5.17.0",
